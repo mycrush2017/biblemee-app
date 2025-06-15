@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BibleMee - Read, Study, and Share the Bible</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bible-content {
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+        .verse-number {
+            font-size: 0.75rem;
+            color: #6B7280;
+            vertical-align: super;
+            margin-right: 0.25rem;
+        }
+        .plan-card, .feature-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        .plan-card:hover, .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .search-result {
+            transition: background-color 0.2s ease;
+        }
+        .search-result:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: all 0.3s ease-in-out;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 50;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-menu-btn {
+            position: relative;
+            z-index: 60;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full top-0 bg-white shadow-sm z-30">
+        <div class="container mx-auto px-4 py-3">
+            <div class="relative flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#home" class="text-2xl font-bold text-gray-800 z-50">BibleMee</a>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search BibleMee.com" class="w-full px-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="#bible" class="text-gray-600 hover:text-gray-900">Bible</a>
+                    <a href="#reading-plans" class="text-gray-600 hover:text-gray-900">Plans</a>
+                    <a href="#search" class="text-gray-600 hover:text-gray-900">Search</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+                    <a href="#login" class="text-gray-600 hover:text-gray-900">Login</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn block lg:hidden p-4 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors fixed top-2 right-4" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-2xl text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <a href="#" class="text-2xl font-bold text-gray-800">BibleMee</a>
+                <button class="p-3 rounded-lg hover:bg-gray-100" id="closeMenuBtn">
+                    <i class="fas fa-times text-2xl text-gray-600"></i>
+                </button>
+            </div>
+            <nav class="space-y-6">
+                <a href="#home" class="block text-lg text-gray-600 hover:text-gray-900">Home</a>
+                <a href="#bible" class="block text-lg text-gray-600 hover:text-gray-900">Bible</a>
+                <a href="#reading-plans" class="block text-lg text-gray-600 hover:text-gray-900">Plans</a>
+                <a href="#search" class="block text-lg text-gray-600 hover:text-gray-900">Search</a>
+                <a href="#about" class="block text-lg text-gray-600 hover:text-gray-900">About</a>
+                <a href="#login" class="block text-lg text-gray-600 hover:text-gray-900">Login</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Rest of the content remains the same -->
+    <!-- ... -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuOverlay = document.querySelector('.mobile-menu-overlay');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const menuLinks = document.querySelectorAll('.mobile-menu nav a');
+
+            function toggleMenu(event) {
+                if (event) {
+                    event.stopPropagation();
+                }
+                mobileMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+
+            // Close menu on window resize if open
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024 && mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Password visibility toggle
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.querySelector('.fa-eye');
+            
+            if (passwordInput && eyeIcon) {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            }
+        }
+
+        // Login form submission
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                console.log('Login attempt:', { email, password });
+            });
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                if (query.length > 0) {
+                    // Example search results - in a real app, this would be dynamic
+                    searchResults.innerHTML = `
+                        <!-- Verse Result -->
+                        <div class="search-result bg-white rounded-lg p-6 cursor-pointer">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-semibold text-gray-900">John 3:16</h3>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                            <p class="text-gray-600 mb-2">"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."</p>
+                            <span class="text-sm text-gray-500">New International Version</span>
+                        </div>
+
+                        <!-- Reading Plan Result -->
+                        <div class="search-result bg-white rounded-lg p-6 cursor-pointer mt-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg" alt="Plan thumbnail" class="w-12 h-12 rounded-lg object-cover mr-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Love and Relationships</h3>
+                                        <p class="text-sm text-gray-500">7 Day Devotional</p>
+                                    </div>
+                                </div>
+                                <button class="px-4 py-2 bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-200">
+                                    Start Plan
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    searchResults.innerHTML = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
