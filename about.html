@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About BibleMee | Your Digital Bible Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .feature-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full top-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-gray-800">BibleMee</a>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search BibleMee.com" class="w-full px-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="flex items-center space-x-6">
+                    <a href="#" class="hidden md:block text-gray-600 hover:text-gray-900">Get the app</a>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-globe text-gray-600"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-user text-gray-600"></i>
+                    </button>
+                    <button class="md:hidden p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-bars text-gray-600"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-24">
+        <!-- Hero Section -->
+        <section class="bg-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About BibleMee</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Empowering millions worldwide to engage with the Bible through technology, making God's word accessible, understandable, and relatable.
+                </p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-8 text-center">
+                        To help people engage with God's word by creating a free, easy-to-use platform that makes the Bible accessible to everyone, everywhere.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-globe text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Global Access</h3>
+                            <p class="text-gray-600">Available in multiple languages and accessible worldwide</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-mobile-alt text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Free Forever</h3>
+                            <p class="text-gray-600">No cost, no ads, just pure Bible study experience</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Community</h3>
+                            <p class="text-gray-600">Connect with others in your faith journey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Key Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Feature 1 -->
+                    <div class="feature-card bg-gray-50 rounded-xl p-6">
+                        <div class="mb-4">
+                            <i class="fas fa-book text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Multiple Bible Versions</h3>
+                        <p class="text-gray-600">Access various translations and versions of the Bible in different languages.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card bg-gray-50 rounded-xl p-6">
+                        <div class="mb-4">
+                            <i class="fas fa-list text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Reading Plans</h3>
+                        <p class="text-gray-600">Customized reading plans for systematic Bible study and spiritual growth.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card bg-gray-50 rounded-xl p-6">
+                        <div class="mb-4">
+                            <i class="fas fa-search text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Advanced Search</h3>
+                        <p class="text-gray-600">Powerful search tools to find verses, topics, and keywords quickly.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card bg-gray-50 rounded-xl p-6">
+                        <div class="mb-4">
+                            <i class="fas fa-pen text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Notes & Highlights</h3>
+                        <p class="text-gray-600">Create personal notes and highlight verses for future reference.</p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="feature-card bg-gray-50 rounded-xl p-6">
+                        <div class="mb-4">
+                            <i class="fas fa-share-alt text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Easy Sharing</h3>
+                        <p class="text-gray-600">Share verses and insights with friends and family instantly.</p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="feature-card bg-gray-50 rounded-xl p-6">
+                        <div class="mb-4">
+                            <i class="fas fa-mobile-alt text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Offline Access</h3>
+                        <p class="text-gray-600">Access the Bible anytime, anywhere, even without internet connection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Have questions or feedback? We'd love to hear from you. Reach out to our team for support or partnership opportunities.
+                </p>
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                    Contact Us
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 md:hidden">
+        <div class="grid grid-cols-4 gap-1 p-2">
+            <a href="/" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="/bible.html" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs mt-1">Bible</span>
+            </a>
+            <a href="/reading-plans.html" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-list text-xl"></i>
+                <span class="text-xs mt-1">Plans</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-video text-xl"></i>
+                <span class="text-xs mt-1">Videos</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.fa-bars').addEventListener('click', function() {
+            // Add mobile menu functionality here
+        });
+    </script>
+</body>
+</html>
