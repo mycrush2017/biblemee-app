@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | BibleMee.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .search-result {
+            transition: background-color 0.2s ease;
+        }
+        .search-result:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full top-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-gray-800">BibleMee</a>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search BibleMee.com" class="w-full px-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="flex items-center space-x-6">
+                    <a href="#" class="hidden md:block text-gray-600 hover:text-gray-900">Get the app</a>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-globe text-gray-600"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-user text-gray-600"></i>
+                    </button>
+                    <button class="md:hidden p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-bars text-gray-600"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-24 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <!-- Search Header -->
+            <div class="mb-8">
+                <div class="relative">
+                    <input type="text" 
+                           placeholder="Search the Bible, verses, topics..." 
+                           class="w-full px-6 py-4 text-lg rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           autofocus>
+                    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="flex overflow-x-auto mb-8 pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+                <div class="flex space-x-4">
+                    <button class="whitespace-nowrap px-6 py-2 bg-blue-600 text-white rounded-full">All Results</button>
+                    <button class="whitespace-nowrap px-6 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100">Verses</button>
+                    <button class="whitespace-nowrap px-6 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100">Reading Plans</button>
+                    <button class="whitespace-nowrap px-6 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100">Topics</button>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div class="space-y-4">
+                <!-- Verse Result -->
+                <div class="search-result bg-white rounded-lg p-6 cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-semibold text-gray-900">John 3:16</h3>
+                        <button class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-600 mb-2">"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."</p>
+                    <span class="text-sm text-gray-500">New International Version</span>
+                </div>
+
+                <!-- Reading Plan Result -->
+                <div class="search-result bg-white rounded-lg p-6 cursor-pointer">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center">
+                            <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg" alt="Plan thumbnail" class="w-12 h-12 rounded-lg object-cover mr-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Love and Relationships</h3>
+                                <p class="text-sm text-gray-500">7 Day Devotional</p>
+                            </div>
+                        </div>
+                        <button class="px-4 py-2 bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-200">
+                            Start Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Topic Result -->
+                <div class="search-result bg-white rounded-lg p-6 cursor-pointer">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Love in the Bible</h3>
+                    <p class="text-gray-600">Explore what the Bible says about love, including God's love for us and how we should love others.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 text-sm text-gray-700 rounded-full">1 Corinthians 13</span>
+                        <span class="px-3 py-1 bg-gray-100 text-sm text-gray-700 rounded-full">1 John 4:19</span>
+                        <span class="px-3 py-1 bg-gray-100 text-sm text-gray-700 rounded-full">Romans 5:8</span>
+                    </div>
+                </div>
+
+                <!-- More results can be added here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 md:hidden">
+        <div class="grid grid-cols-4 gap-1 p-2">
+            <a href="/" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-home text-xl"></i>
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="/bible.html" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-book text-xl"></i>
+                <span class="text-xs mt-1">Bible</span>
+            </a>
+            <a href="/reading-plans.html" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-list text-xl"></i>
+                <span class="text-xs mt-1">Plans</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-2 text-gray-600">
+                <i class="fas fa-video text-xl"></i>
+                <span class="text-xs mt-1">Videos</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.fa-bars').addEventListener('click', function() {
+            // Add mobile menu functionality here
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', function(e) {
+            // Add search functionality here
+            console.log('Searching for:', e.target.value);
+        });
+    </script>
+</body>
+</html>
